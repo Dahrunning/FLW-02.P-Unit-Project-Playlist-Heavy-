@@ -22,9 +22,9 @@ let displayLink = document.querySelector(".display-link");
 
 
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
-let image = [ "https://upload.wikimedia.org/wikipedia/en/9/97/DittoNewJeans.jpg","https://i.scdn.co/image/ab67616d00001e0287f53da5fb4ab1171766b2d5", "https://i.scdn.co/image/ab67616d0000b273b88a1e33abc02c7c919c909b", "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Everything_Goes_On_single_cover.jpg/220px-Everything_Goes_On_single_cover.jpg"];
+let images = [ "https://upload.wikimedia.org/wikipedia/en/9/97/DittoNewJeans.jpg","https://i.scdn.co/image/ab67616d00001e0287f53da5fb4ab1171766b2d5", "https://i.scdn.co/image/ab67616d0000b273b88a1e33abc02c7c919c909b", "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Everything_Goes_On_single_cover.jpg/220px-Everything_Goes_On_single_cover.jpg"];
 let songNames = [ "Ditto", "After Like", "Cinderella", "Everything Goes On", ];
-let artist = [ "NewJeans", "IVE", "DECO*27", "Porter Robinson", ];
+let artists = [ "NewJeans", "IVE", "DECO*27", "Porter Robinson", ];
 let songLinks = [ "https://www.youtube.com/watch?v=-g9I2neQR7w", "https://www.youtube.com/watch?v=CVxTT38_J4c","https://www.youtube.com/watch?v=adGhT_-JbZI", "https://www.youtube.com/watch?v=eEFVxI9lqjU", ];
 
 
@@ -74,8 +74,21 @@ function displaySongInfo() {
 
 // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
+for(let i = 0; i < images.length; i++){
+  displayImage.insertAdjacentHTML('beforeend',`<p><img src=${images[i]}></p>`)
+} 
+};
 
+for(let i = 0; i < songNames.length; i++){
+  displaySong.insertAdjacentHTML('beforeend',`<p>${songNames[i]}</p>`)
+}
 
+for(let i = 0; i < artists.length; i++){
+  displayArtist.insertAdjacentHTML('beforeend',`<p>${artists[i]}</p>`)
+}
+
+for(let i = 0; i < songLinks.length; i++){
+  displayLink.insertAdjacentHTML('beforeend',`<a href = "${songLinks[i]}"> Link ! Click Me ! </a>`)
 }
 
 
