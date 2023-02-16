@@ -6,6 +6,7 @@ let image = document.querySelector(".image");
 let songName = document.querySelector(".song-name");
 let artist = document.querySelector(".artist");
 let songLink = document.querySelector(".song-link");
+let video = document.querySelector(".video");
 
 // button variable
 let add = document.querySelector(".add");
@@ -18,6 +19,7 @@ let displaySong = document.querySelector(".display-song");
 let displayArtist = document.querySelector(".display-artist");
 let displayImage = document.querySelector(".display-image");
 let displayLink = document.querySelector(".display-link");
+let displayVideo = document.querySelector(".display-video");
 
 
 
@@ -34,10 +36,11 @@ let songLinks = ["https://www.youtube.com/watch?v=-g9I2neQR7w", "https://www.you
 // task 11: comment out the arrays data.
 // task 12: create an object for each of your songs.
 let song1 = {
-  image: "https://upload.wikimedia.org/wikipedia/en/9/97/DittoNewJeans.jpg",
+image: "https://upload.wikimedia.org/wikipedia/en/9/97/DittoNewJeans.jpg",
   songName: "Ditto",
   artist: "NewJeans",
   songLink: "https://www.youtube.com/watch?v=-g9I2neQR7w",
+  video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/-g9I2neQR7w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
 };
 let song2 = {
   image: "https://i.scdn.co/image/ab67616d00001e0287f53da5fb4ab1171766b2d5",
@@ -89,12 +92,14 @@ function addSongInfo() {
   // task 10: use `.push()` to add each input value to the correct array.
 
   objects.push(newSong);
+  console.log(objects)
+
 
   // images.push(userImg);
   // songNames.push(userSong);
   // artists.push(userArtist);
   // songLinks.push(userLink);
-}
+};
 
 
 
@@ -105,7 +110,6 @@ function emptyDisplay() {
   displaySong.innerHTML = "";
   displayArtist.innerHTML = "";
   displayLink.innerHTML = "";
-
 }
 
 
@@ -114,6 +118,14 @@ function emptyDisplay() {
 function displaySongInfo() {
   // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
+for (let i = 0; i < objects.length; i++) {
+  displayImage.insertAdjacentHTML('beforeend', `<p><img src=${objects[i].image}></p>`); 
+displaySong.insertAdjacentHTML('beforeend', `<p>${objects[i].songName}</p>`); 
+displayArtist.insertAdjacentHTML('beforeend', `<p>${objects[i].artist}</p>`); 
+displayLink.insertAdjacentHTML('beforeend', `<a href="${objects[i].songLink}"> Link ! Click Me ! </a>`);
+  displayVideo.insertAdjacentHTML('beforeend',objects[i].video);
+}
+  
   //   for (let i = 0; i < images.length; i++) {
   //     displayImage.insertAdjacentHTML('beforeend', `<p><img src=${images[i]}></p>`)
   //   }
